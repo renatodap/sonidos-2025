@@ -503,7 +503,7 @@ window.SONIDOS_CATALOG = {
       ]
     }
   ],
-  "fullVideo": "full/FULL-Sonidos-Studio-Cuts.mp4",
+  "fullVideo": "stream/FULL-Sonidos-Studio-Cuts.mp4?v=c54dd80c5395",
   "fullAudio": "full/e27bd180de32/FULL-Sonidos-Studio-Cuts.m4a?v=e27bd180de32",
   "mediaReady": false,
   "audioReady": false,
@@ -515,8 +515,8 @@ window.SONIDOS_CATALOG = {
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T22:18:05Z",
-  "fullVideoReady": false,
+  "releasedAt": "2026-09-21T23:11:17Z",
+  "fullVideoReady": true,
   "fullArtworkReady": true,
   "fullAudioReady": true,
   "fullAudioSHA": "e27bd180de321f2b188d14fc10866316e7c5d260b6b6a9366536db17b48e18fc",
@@ -526,5 +526,6 @@ window.SONIDOS_CATALOG = {
   },
   "fullAudioAliases": [
     "full/FULL-Sonidos-Studio-Cuts.m4a?v=b63084740ead"
-  ]
+  ],
+  "fullNativeVideoSHA": "c54dd80c5395356715cf371e3e7a02b2f10b5e6b027fc0c627b44a070fe7db41"
 };
