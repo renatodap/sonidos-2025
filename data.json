@@ -248,11 +248,15 @@
       "artist": "Tears for Fears",
       "thumbnailFallback": "./thumbs/12-everybody.jpg",
       "artwork": "./thumbnails/12-everybody-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
       "videoReady": true,
       "masterReady": false,
-      "youtubeId": "Cqdv8zbQ8D8"
+      "youtubeId": "Cqdv8zbQ8D8",
+      "artworkSourceSHA": {
+        "16x9": "f7cc4be2df8d492577c953955e95b70ff96ea040cb7c558a32b7df7d7513737d",
+        "square": "22a6c4f76a961a83bc86ab2da703197d5dbe9fd093c31288e35742a1d2e0f241"
+      }
     },
     {
       "number": 13,
@@ -420,7 +424,7 @@
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T21:24:16Z",
+  "releasedAt": "2026-09-21T21:28:37Z",
   "fullVideoReady": false,
   "fullArtworkReady": false,
   "fullAudioReady": false
