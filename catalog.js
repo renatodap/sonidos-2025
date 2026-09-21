@@ -387,7 +387,7 @@ window.SONIDOS_CATALOG = {
       "label": "killing",
       "title": "Killing in the Name",
       "duration": 345.0775510204082,
-      "video": "songs/19-killing.mp4",
+      "video": "stream/19-killing.mp4?v=fb56a447b574",
       "audio": "audio/19-killing.m4a?v=38901ad22003",
       "master": "audio/19-killing.wav",
       "thumbnail": "./thumbnails/19-killing-16x9.webp",
@@ -396,8 +396,9 @@ window.SONIDOS_CATALOG = {
       "artwork": "./thumbnails/19-killing-square.webp",
       "artworkReady": false,
       "audioReady": true,
-      "videoReady": false,
-      "masterReady": false
+      "videoReady": true,
+      "masterReady": false,
+      "nativeVideoSHA": "fb56a447b574b31d5348f6665e8119cdec95858a3c9f7018c3a8e5b7913fdb6b"
     },
     {
       "number": 20,
@@ -429,7 +430,7 @@ window.SONIDOS_CATALOG = {
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T21:53:20Z",
+  "releasedAt": "2026-09-21T21:54:57Z",
   "fullVideoReady": false,
   "fullArtworkReady": false,
   "fullAudioReady": true,
