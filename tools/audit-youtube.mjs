@@ -6,10 +6,11 @@ const reportPath=new URL('../../../video-work/release/youtube-playback.json',imp
 let report={videos:{}};try{report=JSON.parse(await fs.readFile(reportPath,'utf8'));}catch{}
 const browser=await chromium.launch();
 try{
- const page=await browser.newPage();await page.goto(base,{waitUntil:'networkidle'});
- const songs=await page.evaluate(()=>window.SONIDOS_CATALOG.songs.filter(s=>s.videoReady&&s.youtubeId));
+ const page=await browser.newPage();const response=await page.goto(base,{waitUntil:'networkidle'});if(!response.ok())throw new Error(`Page HTTP ${response.status()}; retry after deployment`);await page.waitForFunction(()=>window.SONIDOS_CATALOG?.songs,{},{timeout:15000});
+ const songs=await page.evaluate(()=>(()=>{const d=window.SONIDOS_CATALOG;const items=d.songs.filter(s=>s.videoReady&&s.youtubeId);if(d.fullVideoReady&&d.fullYoutubeId)items.push({title:'Full set',youtubeId:d.fullYoutubeId,full:true});return items;})());
  for(const song of songs){
   if(report.videos[song.youtubeId]?.passed)continue;
+  if(song.full)await page.getByRole('button',{name:'Full set',exact:true}).click();
   await page.getByRole('button',{name:`Play ${song.title}`,exact:true}).click();
   const handle=await page.locator('#youtube').elementHandle();const frame=await handle.contentFrame();
   await frame.waitForFunction(()=>{const v=document.querySelector('video');return v&&v.currentTime>1&&v.readyState>=3;},{},{timeout:30000});

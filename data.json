@@ -126,12 +126,13 @@
       "artwork": "./thumbnails/06-time-square.webp",
       "artworkReady": true,
       "audioReady": true,
-      "videoReady": false,
+      "videoReady": true,
       "masterReady": true,
       "artworkSourceSHA": {
         "16x9": "3c7e76c2147c8dcf07675a5e5b729e17d24e982caa67e671aea79c1990610014",
         "square": "1454e4811d3ce0a06157de74b04863dff284e375b143a553e6df42f68b1be4ba"
-      }
+      },
+      "youtubeId": "3H-ChJNH_Yc"
     },
     {
       "number": 7,
@@ -147,17 +148,18 @@
       "artwork": "./thumbnails/07-mania-square.webp",
       "artworkReady": true,
       "audioReady": true,
-      "videoReady": false,
+      "videoReady": true,
       "masterReady": true,
       "artworkSourceSHA": {
         "16x9": "6e911692f06161219af35827bc1838e01c8095e1f067cf4d27e3caf37dae51dd",
         "square": "af84cb73653cb5cb98867f6c687ba5cf84e1c89009f8039ab0a07cccf994d344"
-      }
+      },
+      "youtubeId": "NyiK3TJ6nzQ"
     },
     {
       "number": 8,
       "label": "descobridor",
-      "title": "O Descobridor",
+      "title": "O Descobridor dos Sete Mares",
       "duration": 350.0669387755102,
       "video": "songs/08-descobridor.mp4",
       "audio": "audio/08-descobridor.m4a?v=1fb0788ce8bb",
@@ -168,12 +170,13 @@
       "artwork": "./thumbnails/08-descobridor-square.webp",
       "artworkReady": true,
       "audioReady": true,
-      "videoReady": false,
+      "videoReady": true,
       "masterReady": true,
       "artworkSourceSHA": {
         "16x9": "ae906bdf06f9d267e544f62adea361a54355f3febe35de3e90132d95169340f7",
         "square": "b3b2ab827e15054ea4e840c318071033de9901d2c021d6dcbb0f1e9774f774e2"
-      }
+      },
+      "youtubeId": "L4jEiJn8eRc"
     },
     {
       "number": 9,
@@ -189,12 +192,13 @@
       "artwork": "./thumbnails/09-hotelcalifornia-square.webp",
       "artworkReady": true,
       "audioReady": true,
-      "videoReady": false,
+      "videoReady": true,
       "masterReady": false,
       "artworkSourceSHA": {
         "16x9": "e2add35239a50e14dba0e8c27adf8a1a52fbd65c0ff516a740a081bd52feea44",
         "square": "105a6d0ffbb55eab4f54e455d8ccc582ab33fb24c0d4dd6313df9531afebb19e"
-      }
+      },
+      "youtubeId": "D2sZt5KRZLg"
     },
     {
       "number": 10,
@@ -414,6 +418,6 @@
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T20:33:21Z",
+  "releasedAt": "2026-09-21T21:07:17Z",
   "fullVideoReady": false
 }
