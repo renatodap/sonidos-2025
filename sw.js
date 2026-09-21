@@ -1,6 +1,6 @@
-const SHELL_CACHE = 'sonidos-shell-v1-logo-20260921';
+const SHELL_CACHE = 'sonidos-shell-v1-logo-icons-20260921';
 const BASE = new URL('./', self.location.href);
-const SHELL = ['index.html', 'branding/caceta-de-golira.webp', 'styles.css', 'app.js', 'catalog.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-192-maskable.png', 'icons/icon-512-maskable.png', 'icons/apple-touch-icon.png'].map((path) => new URL(path, BASE).href);
+const SHELL = ['index.html', 'branding/caceta-de-golira.webp', 'styles.css', 'app.js', 'catalog.js', 'manifest.webmanifest', 'icons/icon-192.png?v=logo-20260921', 'icons/icon-512.png?v=logo-20260921', 'icons/icon-192-maskable.png?v=logo-20260921', 'icons/icon-512-maskable.png?v=logo-20260921', 'icons/apple-touch-icon.png?v=logo-20260921'].map((path) => new URL(path, BASE).href);
 self.addEventListener('install', (event) => event.waitUntil(caches.open(SHELL_CACHE).then((cache) => cache.addAll(SHELL)).then(() => self.skipWaiting())));
 self.addEventListener('activate', (event) => event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key.startsWith('sonidos-shell-') && key !== SHELL_CACHE).map((key) => caches.delete(key)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', (event) => {

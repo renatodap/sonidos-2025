@@ -199,7 +199,7 @@
   }
   function updateMediaSession(item) {
     if (!('mediaSession' in navigator)) return;
-    navigator.mediaSession.metadata = new MediaMetadata({ title: item.title, artist: data.artist || 'Caceta de Golira', album: 'Sonidos 2025', artwork: (item.artworkReady ?? data.artworkReady) && item.artwork ? [{ src: new URL(item.artwork, APP_URL).href, sizes: '1000x1000', type: 'image/webp' }, { src: new URL('./icons/icon-512.png', APP_URL).href, sizes: '512x512', type: 'image/png' }] : [{ src: new URL('./icons/icon-512.png', APP_URL).href, sizes: '512x512', type: 'image/png' }] });
+    navigator.mediaSession.metadata = new MediaMetadata({ title: item.title, artist: data.artist || 'Caceta de Golira', album: 'Sonidos 2025', artwork: (item.artworkReady ?? data.artworkReady) && item.artwork ? [{ src: new URL(item.artwork, APP_URL).href, sizes: '1000x1000', type: 'image/webp' }, { src: new URL('./icons/icon-512.png?v=logo-20260921', APP_URL).href, sizes: '512x512', type: 'image/png' }] : [{ src: new URL('./icons/icon-512.png?v=logo-20260921', APP_URL).href, sizes: '512x512', type: 'image/png' }] });
     const handlers = { play: () => audio.play(), pause: () => audio.pause(), previoustrack: () => moveTrack(-1), nexttrack: () => moveTrack(1), seekbackward: (event) => { audio.currentTime = Math.max(0, audio.currentTime - (event.seekOffset || 10)); }, seekforward: (event) => { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + (event.seekOffset || 10)); }, seekto: (event) => { if (Number.isFinite(event.seekTime)) audio.currentTime = event.seekTime; }, stop: closeAudio };
     for (const [name, handler] of Object.entries(handlers)) { try { navigator.mediaSession.setActionHandler(name, handler); } catch {} }
   }
