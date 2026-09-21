@@ -413,19 +413,20 @@ window.SONIDOS_CATALOG = {
     }
   ],
   "fullVideo": "full/FULL-Sonidos-Studio-Cuts.mp4",
-  "fullAudio": "full/FULL-Sonidos-Studio-Cuts.m4a",
+  "fullAudio": "full/FULL-Sonidos-Studio-Cuts.m4a?v=b63084740ead",
   "mediaReady": false,
   "audioReady": false,
   "fullMaster": "full/FULL-Sonidos-Studio-Cuts.wav",
-  "fullDuration": 7129.0,
+  "fullDuration": 7129.3555625,
   "artist": "Caceta de Golira",
   "fullThumbnail": "./thumbnails/full-set-16x9.webp",
   "fullArtwork": "./thumbnails/full-set-square.webp",
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T21:28:37Z",
+  "releasedAt": "2026-09-21T21:32:15Z",
   "fullVideoReady": false,
   "fullArtworkReady": false,
-  "fullAudioReady": false
+  "fullAudioReady": true,
+  "fullAudioSHA": "b63084740ead8c347733fce4422a924ad418abacf65464d4a182b506a955ee13"
 };

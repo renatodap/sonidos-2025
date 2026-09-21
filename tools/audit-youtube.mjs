@@ -6,7 +6,7 @@ const reportPath=new URL('../../../video-work/release/youtube-playback.json',imp
 let report={videos:{}};try{report=JSON.parse(await fs.readFile(reportPath,'utf8'));}catch{}
 const browser=await chromium.launch();
 try{
- const page=await browser.newPage();const response=await page.goto(base,{waitUntil:'networkidle'});if(!response.ok())throw new Error(`Page HTTP ${response.status()}; retry after deployment`);await page.waitForFunction(()=>window.SONIDOS_CATALOG?.songs,{},{timeout:15000});
+ const page=await browser.newPage();const response=await page.goto(base,{waitUntil:'domcontentloaded',timeout:45000});if(!response.ok())throw new Error(`Page HTTP ${response.status()}; retry after deployment`);await page.waitForFunction(()=>window.SONIDOS_CATALOG?.songs,{},{timeout:15000});
  const songs=await page.evaluate(()=>(()=>{const d=window.SONIDOS_CATALOG;const items=d.songs.filter(s=>s.videoReady&&s.youtubeId);if(d.fullVideoReady&&d.fullYoutubeId)items.push({title:'Full set',youtubeId:d.fullYoutubeId,full:true});return items;})());
  for(const song of songs){
   if(report.videos[song.youtubeId]?.passed)continue;
