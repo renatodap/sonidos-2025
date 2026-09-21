@@ -35,6 +35,18 @@ try {
  await page.getByRole('button', { name: 'Next song', exact: true }).click();
  await page.waitForFunction(() => document.querySelector('#audio-title').textContent === 'Alive');
  await page.getByRole('button', { name: 'Close audio player', exact: true }).click();
+ // A cover-only remux changes the file URL but must retain a saved copy whose
+ // AAC packets were verified identical by the release pipeline.
+ const beforeCover = catalog.songs[0].audio;
+ catalog.songs[0].audioAliases = [];
+ catalog.songs[0].audio = `${base}fixture-covered.wav`;
+ await page.reload({ waitUntil: 'networkidle' });
+ await page.getByRole('button', { name: 'Audio', exact: true }).click();
+ await page.getByRole('button', { name: 'Save offline War Pigs', exact: true }).waitFor();
+ catalog.songs[0].audioAliases = [beforeCover];
+ await page.reload({ waitUntil: 'networkidle' });
+ await page.getByRole('button', { name: 'Audio', exact: true }).click();
+ await page.getByRole('button', { name: 'Remove offline copy of War Pigs', exact: true }).waitFor();
  await context.setOffline(true);
  await page.reload({ waitUntil: 'domcontentloaded' });
  await page.getByRole('button', { name: 'Audio', exact: true }).click();
@@ -48,5 +60,5 @@ try {
  assert.equal(await page.evaluate(async () => (await (await caches.open('sonidos-audio-masters-v7')).keys()).length), 0);
  assert.deepEqual(errors, []);
  await context.close();
- console.log('PASS: save offline, streaming cache, persistent cache across offline reload, local playback, MediaSession, next song, remove offline, no JS errors.');
+ console.log('PASS: save offline, cover-only URL update preserves saved audio, persistent cache across offline reload, local playback, MediaSession, next song, remove offline, no JS errors.');
 } finally { await browser.close(); }

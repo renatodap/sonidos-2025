@@ -9,10 +9,15 @@
   const video = $('#video');
   const data = window.SONIDOS_CATALOG;
   const state = { mode: 'videos', category: 'songs', audioFilter: 'all', selected: null, saved: new Set(), saving: new Map(), objectURL: null, playToken: 0, deferredInstall: null };
-  const full = { id: 'full-set', title: 'Full set', video: data.fullVideo, audio: data.fullAudio, master: data.fullMaster, duration: data.fullDuration, thumbnail: data.fullThumbnail || './thumbs/full.jpg', thumbnailFallback: './thumbs/full.jpg', artwork: data.fullArtwork, youtubeId: data.fullYoutubeId, audioReady: data.fullAudioReady, videoReady: data.fullVideoReady, artworkReady: data.fullArtworkReady };
+  const full = { id: 'full-set', title: 'Full set', video: data.fullVideo, audio: data.fullAudio, audioAliases: data.fullAudioAliases, master: data.fullMaster, duration: data.fullDuration, thumbnail: data.fullThumbnail || './thumbs/full.jpg', thumbnailFallback: './thumbs/full.jpg', artwork: data.fullArtwork, youtubeId: data.fullYoutubeId, audioReady: data.fullAudioReady, videoReady: data.fullVideoReady, artworkReady: data.fullArtworkReady };
   const tracks = [...data.songs, full];
   const key = (item) => item.id || item.label || item.title;
   const media = (path) => new URL(path, data.mediaBase).href;
+  const offlineURLs = (item) => [item.audio, ...(item.audioAliases || [])].filter(Boolean).map(media);
+  async function savedResponse(cache, item) {
+    for (const url of offlineURLs(item)) { const response = await cache.match(url); if (response) return response; }
+    return null;
+  }
   const ready = (item, kind) => item[`${kind}Ready`] ?? data[kind === 'audio' ? 'audioReady' : 'mediaReady'] !== false;
   const formatTime = (seconds) => {
     const n = Math.round(Number.parseFloat(seconds) || 0);
@@ -98,7 +103,7 @@
         if (!ready(item, 'audio') && !isSaved) { event.preventDefault(); return; }
         if (!navigator.onLine && isSaved) {
           event.preventDefault();
-          const saved = await (await caches.open(AUDIO_CACHE)).match(media(item.audio));
+          const saved = await savedResponse(await caches.open(AUDIO_CACHE), item);
           if (saved) {
             const url = URL.createObjectURL(await saved.blob());
             const link = el('a'); link.href = url; link.download = new URL(media(item.audio)).pathname.split('/').pop(); link.click();
@@ -164,7 +169,7 @@
     let blobURL = null;
     if (state.saved.has(key(item))) {
       try {
-        const response = await (await caches.open(AUDIO_CACHE)).match(src);
+        const response = await savedResponse(await caches.open(AUDIO_CACHE), item);
         if (response) { blobURL = URL.createObjectURL(await response.blob()); src = blobURL; }
         else { state.saved.delete(key(item)); renderAudio(); }
       } catch { state.saved.delete(key(item)); }
@@ -212,7 +217,7 @@
     try {
       const cache = await caches.open(AUDIO_CACHE);
       const keys = new Set((await cache.keys()).map((request) => request.url));
-      state.saved = new Set(tracks.filter((item) => item.audio && keys.has(media(item.audio))).map(key));
+      state.saved = new Set(tracks.filter((item) => offlineURLs(item).some((url) => keys.has(url))).map(key));
       renderAudio();
     } catch { announce('Offline storage is unavailable in this browser. Downloads still work.'); }
   }
@@ -224,7 +229,7 @@
     try { cache = await caches.open(AUDIO_CACHE); } catch { announce('Offline storage is unavailable. Download the file instead.'); return; }
     const url = media(item.audio);
     if (state.saved.has(id)) {
-      await cache.delete(url);
+      await Promise.all(offlineURLs(item).map((savedURL) => cache.delete(savedURL)));
       state.saved.delete(id); renderAudio(); announce(''); return;
     }
     const controller = new AbortController();
