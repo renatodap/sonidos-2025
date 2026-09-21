@@ -347,7 +347,7 @@ window.SONIDOS_CATALOG = {
       "label": "dreams",
       "title": "Dreams",
       "duration": 392.0718367346939,
-      "video": "songs/17-dreams.mp4",
+      "video": "stream/17-dreams.mp4?v=820c67c01ffc",
       "audio": "audio/17-dreams.m4a?v=cd988ad6f3a6",
       "master": "audio/17-dreams.wav",
       "thumbnail": "./thumbnails/17-dreams-16x9.webp",
@@ -356,19 +356,20 @@ window.SONIDOS_CATALOG = {
       "artwork": "./thumbnails/17-dreams-square.webp",
       "artworkReady": true,
       "audioReady": true,
-      "videoReady": false,
+      "videoReady": true,
       "masterReady": false,
       "artworkSourceSHA": {
         "16x9": "0225c87b701c5c5c18e0bab77c5d26d9047f6a714f298c88b525440ead21bb3c",
         "square": "360aea7e8084c1cebd699a663df59f7a8ff614d999e161514683eaecfd2451a5"
-      }
+      },
+      "nativeVideoSHA": "820c67c01ffce582b5341916429c680e3040a02a6576a32d657cab4d061bed38"
     },
     {
       "number": 18,
       "label": "creep",
       "title": "Creep",
       "duration": 287.0595918367347,
-      "video": "songs/18-creep.mp4",
+      "video": "stream/18-creep.mp4?v=9907bb401dd0",
       "audio": "audio/18-creep.m4a?v=853a991d40e1",
       "master": "audio/18-creep.wav",
       "thumbnail": "./thumbnails/18-creep-16x9.webp",
@@ -377,8 +378,9 @@ window.SONIDOS_CATALOG = {
       "artwork": "./thumbnails/18-creep-square.webp",
       "artworkReady": false,
       "audioReady": true,
-      "videoReady": false,
-      "masterReady": false
+      "videoReady": true,
+      "masterReady": false,
+      "nativeVideoSHA": "9907bb401dd036ea97ef3c938c986d11b64a17be4f3c00abb31802f51760699d"
     },
     {
       "number": 19,
@@ -427,7 +429,7 @@ window.SONIDOS_CATALOG = {
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T21:48:34Z",
+  "releasedAt": "2026-09-21T21:53:20Z",
   "fullVideoReady": false,
   "fullArtworkReady": false,
   "fullAudioReady": true,
