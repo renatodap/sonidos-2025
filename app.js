@@ -9,7 +9,7 @@
   const video = $('#video');
   const data = window.SONIDOS_CATALOG;
   const state = { mode: 'videos', category: 'songs', audioFilter: 'all', selected: null, saved: new Set(), saving: new Map(), objectURL: null, playToken: 0, deferredInstall: null };
-  const full = { id: 'full-set', title: 'Full set', video: data.fullVideo, audio: data.fullAudio, master: data.fullMaster, duration: data.fullDuration, thumbnail: data.fullThumbnail || './thumbs/full.jpg', thumbnailFallback: './thumbs/full.jpg', artwork: data.fullArtwork, youtubeId: data.fullYoutubeId };
+  const full = { id: 'full-set', title: 'Full set', video: data.fullVideo, audio: data.fullAudio, master: data.fullMaster, duration: data.fullDuration, thumbnail: data.fullThumbnail || './thumbs/full.jpg', thumbnailFallback: './thumbs/full.jpg', artwork: data.fullArtwork, youtubeId: data.fullYoutubeId, audioReady: data.fullAudioReady, videoReady: data.fullVideoReady, artworkReady: data.fullArtworkReady };
   const tracks = [...data.songs, full];
   const key = (item) => item.id || item.label || item.title;
   const media = (path) => new URL(path, data.mediaBase).href;
@@ -29,9 +29,11 @@
     $('#status').hidden = !message;
   }
   function videoItems() {
-    return state.category === 'songs' ? data.songs : [full];
+    const items = state.category === 'songs' ? data.songs : [full];
+    return data.hidePending ? items.filter((item) => ready(item, 'video')) : items;
   }
   function renderVideos() {
+    $('[data-category=full]').hidden = Boolean(data.hidePending && !ready(full, 'video'));
     const items = videoItems();
     $('#video-count').textContent = `${items.length} ${items.length === 1 ? 'video' : 'videos'}`;
     $('#video-grid').replaceChildren(...items.map((item) => {
@@ -42,7 +44,7 @@
       button.disabled = !ready(item, 'video');
       const picture = el('div', 'thumbnail');
       const image = el('img');
-      image.src = new URL(data.artworkReady ? item.thumbnail || './thumbs/full.jpg' : item.thumbnailFallback || './thumbs/full.jpg', APP_URL).href;
+      image.src = new URL((item.artworkReady ?? data.artworkReady) ? item.thumbnail || './thumbs/full.jpg' : item.thumbnailFallback || './thumbs/full.jpg', APP_URL).href;
       image.addEventListener('error', () => { image.src = new URL(item.thumbnailFallback || './thumbs/full.jpg', APP_URL).href; }, { once: true });
       image.alt = '';
       image.loading = 'lazy';
@@ -64,7 +66,7 @@
     }));
   }
   function renderAudio() {
-    const shown = tracks.filter((item) => item.audio && (state.audioFilter !== 'saved' || state.saved.has(key(item))));
+    const shown = tracks.filter((item) => item.audio && (!data.hidePending || ready(item, 'audio') || state.saved.has(key(item))) && (state.audioFilter !== 'saved' || state.saved.has(key(item))));
     $('#audio-empty').hidden = shown.length > 0;
     $('#audio-list').replaceChildren(...shown.map((item) => {
       const id = key(item);
@@ -90,7 +92,7 @@
       save.addEventListener('click', () => toggleOffline(item));
       const download = el('a', 'download', 'Download');
       download.href = media(item.audio);
-      download.download = item.audio.split('/').pop();
+      download.download = new URL(media(item.audio)).pathname.split('/').pop();
       download.setAttribute('aria-label', `Download ${item.title} audio`);
       download.addEventListener('click', async (event) => {
         if (!ready(item, 'audio') && !isSaved) { event.preventDefault(); return; }
@@ -99,7 +101,7 @@
           const saved = await (await caches.open(AUDIO_CACHE)).match(media(item.audio));
           if (saved) {
             const url = URL.createObjectURL(await saved.blob());
-            const link = el('a'); link.href = url; link.download = item.audio.split('/').pop(); link.click();
+            const link = el('a'); link.href = url; link.download = new URL(media(item.audio)).pathname.split('/').pop(); link.click();
             setTimeout(() => URL.revokeObjectURL(url), 60000);
           }
         }
@@ -147,7 +149,7 @@
       $('#youtube-link').href = `https://www.youtube.com/watch?v=${youtubeId}`;
     } else {
       video.src = media(item.video);
-      video.poster = new URL(data.artworkReady ? item.thumbnail || './thumbs/full.jpg' : item.thumbnailFallback || './thumbs/full.jpg', APP_URL).href;
+      video.poster = new URL((item.artworkReady ?? data.artworkReady) ? item.thumbnail || './thumbs/full.jpg' : item.thumbnailFallback || './thumbs/full.jpg', APP_URL).href;
       video.play().catch((error) => { if (error.name !== 'NotAllowedError' && error.name !== 'AbortError') announce('Video could not load. Try again when connected.'); });
     }
     $('#main').scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
@@ -197,7 +199,7 @@
   }
   function updateMediaSession(item) {
     if (!('mediaSession' in navigator)) return;
-    navigator.mediaSession.metadata = new MediaMetadata({ title: item.title, artist: data.artist || 'Caceta de Golira', album: 'Sonidos 2025', artwork: data.artworkReady && item.artwork ? [{ src: new URL(item.artwork, APP_URL).href, sizes: '1024x1024', type: 'image/webp' }, { src: new URL('./icons/icon-512.png', APP_URL).href, sizes: '512x512', type: 'image/png' }] : [{ src: new URL('./icons/icon-512.png', APP_URL).href, sizes: '512x512', type: 'image/png' }] });
+    navigator.mediaSession.metadata = new MediaMetadata({ title: item.title, artist: data.artist || 'Caceta de Golira', album: 'Sonidos 2025', artwork: (item.artworkReady ?? data.artworkReady) && item.artwork ? [{ src: new URL(item.artwork, APP_URL).href, sizes: '1000x1000', type: 'image/webp' }, { src: new URL('./icons/icon-512.png', APP_URL).href, sizes: '512x512', type: 'image/png' }] : [{ src: new URL('./icons/icon-512.png', APP_URL).href, sizes: '512x512', type: 'image/png' }] });
     const handlers = { play: () => audio.play(), pause: () => audio.pause(), previoustrack: () => moveTrack(-1), nexttrack: () => moveTrack(1), seekbackward: (event) => { audio.currentTime = Math.max(0, audio.currentTime - (event.seekOffset || 10)); }, seekforward: (event) => { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + (event.seekOffset || 10)); }, seekto: (event) => { if (Number.isFinite(event.seekTime)) audio.currentTime = event.seekTime; }, stop: closeAudio };
     for (const [name, handler] of Object.entries(handlers)) { try { navigator.mediaSession.setActionHandler(name, handler); } catch {} }
   }

@@ -1,4 +1,4 @@
-const SHELL_CACHE = 'sonidos-shell-v3';
+const SHELL_CACHE = 'sonidos-shell-v1-release-20260921';
 const BASE = new URL('./', self.location.href);
 const SHELL = ['index.html', 'styles.css', 'app.js', 'catalog.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-192-maskable.png', 'icons/icon-512-maskable.png', 'icons/apple-touch-icon.png'].map((path) => new URL(path, BASE).href);
 self.addEventListener('install', (event) => event.waitUntil(caches.open(SHELL_CACHE).then((cache) => cache.addAll(SHELL)).then(() => self.skipWaiting())));
@@ -12,7 +12,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
   const isShell = SHELL.includes(url.href) || url.pathname === new URL('data.json', BASE).pathname;
-  const isThumbnail = url.pathname.startsWith(new URL('thumbs/', BASE).pathname);
+  const isThumbnail = ['thumbs/', 'thumbnails/'].some((path) => url.pathname.startsWith(new URL(path, BASE).pathname));
   if (!isShell && !isThumbnail) return;
   event.respondWith(fetch(request).then((response) => {
     if (response.ok && response.type === 'basic') { const copy = response.clone(); event.waitUntil(caches.open(SHELL_CACHE).then((cache) => cache.put(request, copy))); }
