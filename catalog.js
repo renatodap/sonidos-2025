@@ -14,11 +14,15 @@ window.SONIDOS_CATALOG = {
       "artist": "Black Sabbath",
       "thumbnailFallback": "./thumbs/01-warpigs.jpg",
       "artwork": "./thumbnails/01-warpigs-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
       "videoReady": true,
       "masterReady": true,
-      "youtubeId": "CuVkTWLp6Bs"
+      "youtubeId": "CuVkTWLp6Bs",
+      "artworkSourceSHA": {
+        "16x9": "13bf5be419b3cb5ecdb9dd5237307d4a326635977578ccb68a11c5b295dd0f98",
+        "square": "dbd83f9859a3d13712e0ab752cf953d2a4f57790c8685b9e76457aef1555fbf1"
+      }
     },
     {
       "number": 2,
@@ -34,8 +38,13 @@ window.SONIDOS_CATALOG = {
       "artwork": "./thumbnails/02-alive-square.webp",
       "artworkReady": true,
       "audioReady": true,
-      "videoReady": false,
-      "masterReady": true
+      "videoReady": true,
+      "masterReady": true,
+      "artworkSourceSHA": {
+        "16x9": "cc94d9660a0f550290b936543835a8c963f4ecf0224517b2aa3deb858bde30ca",
+        "square": "6c9effdbd146121f298c9ae03dec82cb26f1bdeaaa5c842be75d8ffa9151a0ec"
+      },
+      "youtubeId": "sfJbnK2Xxyo"
     },
     {
       "number": 3,
@@ -49,10 +58,15 @@ window.SONIDOS_CATALOG = {
       "artist": "Metallica",
       "thumbnailFallback": "./thumbs/03-belltolls.jpg",
       "artwork": "./thumbnails/03-belltolls-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
-      "videoReady": false,
-      "masterReady": true
+      "videoReady": true,
+      "masterReady": true,
+      "artworkSourceSHA": {
+        "16x9": "a5f0af8907327acffcaa4f3ac35cc6b2bd44b5eacae5e423b5b7747d19031008",
+        "square": "440b375d749b061d814c20baf79b538d81b0ee961c48adb5a846e738fbdd319d"
+      },
+      "youtubeId": "3_GtrSv6K78"
     },
     {
       "number": 4,
@@ -66,10 +80,15 @@ window.SONIDOS_CATALOG = {
       "artist": "Pink Floyd",
       "thumbnailFallback": "./thumbs/04-numb.jpg",
       "artwork": "./thumbnails/04-numb-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
-      "videoReady": false,
-      "masterReady": true
+      "videoReady": true,
+      "masterReady": true,
+      "artworkSourceSHA": {
+        "16x9": "fff8f06c3012b13da3f0b7ceddeacaf2784e6722633377b1bf175e559e6e67f6",
+        "square": "7eff06502ec79702825a19815ac3428142ac1e61f6d54b890b6aa18ccc900821"
+      },
+      "youtubeId": "n-zRTbVuZGM"
     },
     {
       "number": 5,
@@ -83,11 +102,15 @@ window.SONIDOS_CATALOG = {
       "artist": "Pink Floyd",
       "thumbnailFallback": "./thumbs/05-wishhere.jpg",
       "artwork": "./thumbnails/05-wishhere-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
       "videoReady": true,
       "masterReady": true,
-      "youtubeId": "IB8TieRb03A"
+      "youtubeId": "IB8TieRb03A",
+      "artworkSourceSHA": {
+        "16x9": "19916be249d74b6b462129a1928246f01e63c26ce8ffc43b5bfdba04ee808ef6",
+        "square": "f02a698d59ce70767f16aa2448014e766031de7f9d5609d401dc9f7c0133621b"
+      }
     },
     {
       "number": 6,
@@ -101,10 +124,14 @@ window.SONIDOS_CATALOG = {
       "artist": "Pink Floyd",
       "thumbnailFallback": "./thumbs/06-time.jpg",
       "artwork": "./thumbnails/06-time-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": true
+      "masterReady": true,
+      "artworkSourceSHA": {
+        "16x9": "3c7e76c2147c8dcf07675a5e5b729e17d24e982caa67e671aea79c1990610014",
+        "square": "1454e4811d3ce0a06157de74b04863dff284e375b143a553e6df42f68b1be4ba"
+      }
     },
     {
       "number": 7,
@@ -118,10 +145,14 @@ window.SONIDOS_CATALOG = {
       "artist": "Rita Lee",
       "thumbnailFallback": "./thumbs/07-mania.jpg",
       "artwork": "./thumbnails/07-mania-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": true
+      "masterReady": true,
+      "artworkSourceSHA": {
+        "16x9": "6e911692f06161219af35827bc1838e01c8095e1f067cf4d27e3caf37dae51dd",
+        "square": "af84cb73653cb5cb98867f6c687ba5cf84e1c89009f8039ab0a07cccf994d344"
+      }
     },
     {
       "number": 8,
@@ -135,10 +166,14 @@ window.SONIDOS_CATALOG = {
       "artist": "Tim Maia",
       "thumbnailFallback": "./thumbs/08-descobridor.jpg",
       "artwork": "./thumbnails/08-descobridor-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": true
+      "masterReady": true,
+      "artworkSourceSHA": {
+        "16x9": "ae906bdf06f9d267e544f62adea361a54355f3febe35de3e90132d95169340f7",
+        "square": "b3b2ab827e15054ea4e840c318071033de9901d2c021d6dcbb0f1e9774f774e2"
+      }
     },
     {
       "number": 9,
@@ -152,10 +187,14 @@ window.SONIDOS_CATALOG = {
       "artist": "Eagles",
       "thumbnailFallback": "./thumbs/09-hotelcalifornia.jpg",
       "artwork": "./thumbnails/09-hotelcalifornia-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": false,
+      "artworkSourceSHA": {
+        "16x9": "e2add35239a50e14dba0e8c27adf8a1a52fbd65c0ff516a740a081bd52feea44",
+        "square": "105a6d0ffbb55eab4f54e455d8ccc582ab33fb24c0d4dd6313df9531afebb19e"
+      }
     },
     {
       "number": 10,
@@ -222,10 +261,14 @@ window.SONIDOS_CATALOG = {
       "artist": "Foo Fighters",
       "thumbnailFallback": "./thumbs/13-everlong.jpg",
       "artwork": "./thumbnails/13-everlong-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": false,
+      "artworkSourceSHA": {
+        "16x9": "bd58e2f14bc32088070809405419532527ab21292508efff05cc108848066552",
+        "square": "a938874597a662d4ec3ced226dbc7d900e8bb19de3297b5218cf3ce74c534bc0"
+      }
     },
     {
       "number": 14,
@@ -239,10 +282,14 @@ window.SONIDOS_CATALOG = {
       "artist": "System of a Down",
       "thumbnailFallback": "./thumbs/14-aerials.jpg",
       "artwork": "./thumbnails/14-aerials-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": false,
+      "artworkSourceSHA": {
+        "16x9": "42abf503d868107b664b4b0990f7a51ed47ec8512d4f5dfa1238fcfffc342954",
+        "square": "7cfc5065ec61472127f09c510e9fd27c18fbdf35e4293fe8264069e117449374"
+      }
     },
     {
       "number": 15,
@@ -256,10 +303,14 @@ window.SONIDOS_CATALOG = {
       "artist": "Pearl Jam",
       "thumbnailFallback": "./thumbs/15-evenflow.jpg",
       "artwork": "./thumbnails/15-evenflow-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": false,
+      "artworkSourceSHA": {
+        "16x9": "15a437239d8585c235ce27a8748de4a2147e890b6ec98f4d891b94ee349059b9",
+        "square": "e3b3c647de065af0d2f434062f641c0108955ae95b9ad3d0f67420bb6b9eb244"
+      }
     },
     {
       "number": 16,
@@ -290,10 +341,14 @@ window.SONIDOS_CATALOG = {
       "artist": "Fleetwood Mac",
       "thumbnailFallback": "./thumbs/17-dreams.jpg",
       "artwork": "./thumbnails/17-dreams-square.webp",
-      "artworkReady": false,
+      "artworkReady": true,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": false,
+      "artworkSourceSHA": {
+        "16x9": "0225c87b701c5c5c18e0bab77c5d26d9047f6a714f298c88b525440ead21bb3c",
+        "square": "360aea7e8084c1cebd699a663df59f7a8ff614d999e161514683eaecfd2451a5"
+      }
     },
     {
       "number": 18,
@@ -359,6 +414,6 @@ window.SONIDOS_CATALOG = {
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T20:30:57Z",
+  "releasedAt": "2026-09-21T20:33:21Z",
   "fullVideoReady": false
 };
