@@ -1,0 +1,210 @@
+{
+  "title": "Sonidos 2025",
+  "mediaBase": "https://renatodap.me/s3/sonidos-2025/",
+  "songs": [
+    {
+      "number": 1,
+      "label": "warpigs",
+      "title": "01 \u00b7 Warpigs",
+      "duration": "468 seconds",
+      "video": "songs/01-warpigs.mp4",
+      "audio": "audio/01-warpigs.wav"
+    },
+    {
+      "number": 2,
+      "label": "alive",
+      "title": "02 \u00b7 Alive",
+      "duration": "302 seconds",
+      "video": "songs/02-alive.mp4",
+      "audio": "audio/02-alive.wav"
+    },
+    {
+      "number": 3,
+      "label": "belltolls",
+      "title": "03 \u00b7 Belltolls",
+      "duration": "292 seconds",
+      "video": "songs/03-belltolls.mp4",
+      "audio": "audio/03-belltolls.wav"
+    },
+    {
+      "number": 4,
+      "label": "numb",
+      "title": "04 \u00b7 Numb",
+      "duration": "600 seconds",
+      "video": "songs/04-numb.mp4",
+      "audio": "audio/04-numb.wav"
+    },
+    {
+      "number": 5,
+      "label": "wishhere",
+      "title": "05 \u00b7 Wishhere",
+      "duration": "311 seconds",
+      "video": "songs/05-wishhere.mp4",
+      "audio": "audio/05-wishhere.wav"
+    },
+    {
+      "number": 6,
+      "label": "time",
+      "title": "06 \u00b7 Time",
+      "duration": "365 seconds",
+      "video": "songs/06-time.mp4",
+      "audio": "audio/06-time.wav"
+    },
+    {
+      "number": 7,
+      "label": "mania",
+      "title": "07 \u00b7 Mania",
+      "duration": "440 seconds",
+      "video": "songs/07-mania.mp4",
+      "audio": "audio/07-mania.wav"
+    },
+    {
+      "number": 8,
+      "label": "descobridor",
+      "title": "08 \u00b7 Descobridor",
+      "duration": "350 seconds",
+      "video": "songs/08-descobridor.mp4",
+      "audio": "audio/08-descobridor.wav"
+    },
+    {
+      "number": 9,
+      "label": "hotelcalifornia",
+      "title": "09 \u00b7 Hotelcalifornia",
+      "duration": "473 seconds",
+      "video": "songs/09-hotelcalifornia.mp4",
+      "audio": "audio/09-hotelcalifornia.wav"
+    },
+    {
+      "number": 10,
+      "label": "cantstop",
+      "title": "10 \u00b7 Cantstop",
+      "duration": "322 seconds",
+      "video": "songs/10-cantstop.mp4",
+      "audio": "audio/10-cantstop.wav"
+    },
+    {
+      "number": 11,
+      "label": "bridge",
+      "title": "11 \u00b7 Bridge",
+      "duration": "274 seconds",
+      "video": "songs/11-bridge.mp4",
+      "audio": "audio/11-bridge.wav"
+    },
+    {
+      "number": 12,
+      "label": "everybody",
+      "title": "12 \u00b7 Everybody",
+      "duration": "288 seconds",
+      "video": "songs/12-everybody.mp4",
+      "audio": "audio/12-everybody.wav"
+    },
+    {
+      "number": 13,
+      "label": "everlong",
+      "title": "13 \u00b7 Everlong",
+      "duration": "281 seconds",
+      "video": "songs/13-everlong.mp4",
+      "audio": "audio/13-everlong.wav"
+    },
+    {
+      "number": 14,
+      "label": "aerials",
+      "title": "14 \u00b7 Aerials",
+      "duration": "314 seconds",
+      "video": "songs/14-aerials.mp4",
+      "audio": "audio/14-aerials.wav"
+    },
+    {
+      "number": 15,
+      "label": "evenflow",
+      "title": "15 \u00b7 Evenflow",
+      "duration": "280 seconds",
+      "video": "songs/15-evenflow.mp4",
+      "audio": "audio/15-evenflow.wav"
+    },
+    {
+      "number": 16,
+      "label": "chain",
+      "title": "16 \u00b7 Chain",
+      "duration": "346 seconds",
+      "video": "songs/16-chain.mp4",
+      "audio": "audio/16-chain.wav"
+    },
+    {
+      "number": 17,
+      "label": "dreams",
+      "title": "17 \u00b7 Dreams",
+      "duration": "392 seconds",
+      "video": "songs/17-dreams.mp4",
+      "audio": "audio/17-dreams.wav"
+    },
+    {
+      "number": 18,
+      "label": "creep",
+      "title": "18 \u00b7 Creep",
+      "duration": "287 seconds",
+      "video": "songs/18-creep.mp4",
+      "audio": "audio/18-creep.wav"
+    },
+    {
+      "number": 19,
+      "label": "killing",
+      "title": "19 \u00b7 Killing",
+      "duration": "345 seconds",
+      "video": "songs/19-killing.mp4",
+      "audio": "audio/19-killing.wav"
+    },
+    {
+      "number": 20,
+      "label": "ironman",
+      "title": "20 \u00b7 Ironman",
+      "duration": "399 seconds",
+      "video": "songs/20-ironman.mp4",
+      "audio": "audio/20-ironman.wav"
+    }
+  ],
+  "highlights": [
+    {
+      "title": "Guitar Solos",
+      "description": "Stem-selected 2\u20133 minute highlight reel",
+      "video": "highlights/HIGHLIGHTS-Guitar-Solos.mp4"
+    },
+    {
+      "title": "Drums and Entrances",
+      "description": "Stem-selected 2\u20133 minute highlight reel",
+      "video": "highlights/HIGHLIGHTS-Drums-and-Entrances.mp4"
+    },
+    {
+      "title": "Biggest Fun Moments",
+      "description": "Stem-selected 2\u20133 minute highlight reel",
+      "video": "highlights/HIGHLIGHTS-Biggest-Fun-Moments.mp4"
+    },
+    {
+      "title": "Human Moments and Loose Starts",
+      "description": "Stem-selected 2\u20133 minute highlight reel",
+      "video": "highlights/HIGHLIGHTS-Human-Moments-and-Loose-Starts.mp4"
+    },
+    {
+      "title": "Vocal Hooks and Big Entrances",
+      "description": "Stem-selected 2\u20133 minute highlight reel",
+      "video": "highlights/HIGHLIGHTS-Vocal-Hooks-and-Big-Entrances.mp4"
+    },
+    {
+      "title": "Bass Riffs and Low End",
+      "description": "Stem-selected 2\u20133 minute highlight reel",
+      "video": "highlights/HIGHLIGHTS-Bass-Riffs-and-Low-End.mp4"
+    },
+    {
+      "title": "Heavy Riffs and Breakdowns",
+      "description": "Stem-selected 2\u20133 minute highlight reel",
+      "video": "highlights/HIGHLIGHTS-Heavy-Riffs-and-Breakdowns.mp4"
+    },
+    {
+      "title": "Starts Stops and Explosions",
+      "description": "Stem-selected 2\u20133 minute highlight reel",
+      "video": "highlights/HIGHLIGHTS-Starts-Stops-and-Explosions.mp4"
+    }
+  ],
+  "fullVideo": "full/FULL-Sonidos-Studio-Cuts.mp4",
+  "fullAudio": "full/FULL-Sonidos-Studio-Cuts.wav"
+}

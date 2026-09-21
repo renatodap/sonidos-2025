@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+  <meta name="theme-color" content="#11151a"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Sonidos">
+  <link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icons/apple-touch-icon.png"><link rel="stylesheet" href="./styles.css"><title>Sonidos 2025</title>
+</head>
+<body><div class="app">
+  <header class="topbar"><div class="brand"><div class="mark">S</div><div><div class="eyebrow">Studio delivery</div><h1>Sonidos 2025</h1></div></div><button class="install" id="install" hidden>Install</button></header>
+  <main class="scroll"><div class="wrap">
+    <section class="hero"><div><div class="eyebrow">Complete performance archive</div><h2>Every song. Every angle. One room.</h2><p>Stream the finished videos and masters from the Sonidos studio session. Audio-only playback is available for listening with the phone locked.</p></div><div class="hero-meta"><div><strong id="song-count">—</strong><span>songs</span></div><div><strong id="video-count">—</strong><span>videos</span></div></div></section>
+    <section class="player" aria-label="Selected performance"><div class="player-head"><strong id="now">Choose a song</strong><span id="now-meta">Video and audio</span></div><video id="video" controls playsinline preload="metadata"></video><audio id="audio" controls preload="none"></audio></section>
+    <div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="true" data-view="songs">Songs</button><button class="tab" role="tab" aria-selected="false" data-view="highlights">Highlights</button><button class="tab" role="tab" aria-selected="false" data-view="full">Full set</button></div>
+    <section id="songs-view" class="section"><h2>Individual songs</h2><div class="grid" id="songs"></div></section>
+    <section id="highlights-view" class="section" hidden><h2>Highlight edits</h2><div class="grid" id="highlights"></div></section>
+    <section id="full-view" class="section" hidden><h2>Complete program</h2><div class="grid" id="full"></div></section>
+  </div></main>
+  <footer class="bottom"><span>Install from the browser menu for the phone shell.</span><a href="./data.json">manifest</a></footer>
+</div><script src="./app.js"></script></body></html>
