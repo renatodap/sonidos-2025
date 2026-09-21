@@ -1,5 +1,11 @@
 {
   "name": "sonidos-2025-delivery",
   "private": true,
-  "scripts": {"start": "python3 -m http.server 3000"}
+  "scripts": {
+    "start": "python3 -m http.server 3000",
+    "build": "python3 tools/sync-catalog.py"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
 }

@@ -1,15 +1,21 @@
-const CACHE = "sonidos-shell-v1";
-const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./styles.css", "./app.js", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/icon-192-maskable.png", "./icons/icon-512-maskable.png"];
-self.addEventListener("install", event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting())));
-self.addEventListener("activate", event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));
-self.addEventListener("fetch", event => {
+const SHELL_CACHE = 'sonidos-shell-v3';
+const BASE = new URL('./', self.location.href);
+const SHELL = ['index.html', 'styles.css', 'app.js', 'catalog.js', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-192-maskable.png', 'icons/icon-512-maskable.png', 'icons/apple-touch-icon.png'].map((path) => new URL(path, BASE).href);
+self.addEventListener('install', (event) => event.waitUntil(caches.open(SHELL_CACHE).then((cache) => cache.addAll(SHELL)).then(() => self.skipWaiting())));
+self.addEventListener('activate', (event) => event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key.startsWith('sonidos-shell-') && key !== SHELL_CACHE).map((key) => caches.delete(key)))).then(() => self.clients.claim())));
+self.addEventListener('fetch', (event) => {
   const request = event.request;
-  if (request.method !== "GET") return;
   const url = new URL(request.url);
-  if (url.pathname.includes("/s3/")) return;
-  event.respondWith(caches.match(request).then(cached => cached || fetch(request).then(response => {
-    const copy = response.clone();
-    caches.open(CACHE).then(cache => cache.put(request, copy));
+  if (request.method !== 'GET' || url.origin !== BASE.origin || !url.pathname.startsWith(BASE.pathname)) return;
+  if (request.mode === 'navigate') {
+    event.respondWith(fetch(request).then((response) => { if (response.ok) { const copy = response.clone(); event.waitUntil(caches.open(SHELL_CACHE).then((cache) => cache.put(new URL('index.html', BASE).href, copy))); } return response; }).catch(() => caches.match(new URL('index.html', BASE).href)));
+    return;
+  }
+  const isShell = SHELL.includes(url.href) || url.pathname === new URL('data.json', BASE).pathname;
+  const isThumbnail = url.pathname.startsWith(new URL('thumbs/', BASE).pathname);
+  if (!isShell && !isThumbnail) return;
+  event.respondWith(fetch(request).then((response) => {
+    if (response.ok && response.type === 'basic') { const copy = response.clone(); event.waitUntil(caches.open(SHELL_CACHE).then((cache) => cache.put(request, copy))); }
     return response;
-  }).catch(() => caches.match("./index.html"))));
+  }).catch(async () => (await caches.match(request)) || new Response('', { status: 503 })));
 });

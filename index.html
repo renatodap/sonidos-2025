@@ -1,19 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
-  <meta name="theme-color" content="#11151a"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Sonidos">
-  <link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icons/apple-touch-icon.png"><link rel="stylesheet" href="./styles.css"><title>Sonidos 2025</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+  <meta name="theme-color" content="#171716">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Sonidos">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Caceta de Golira · Sonidos 2025</title>
 </head>
-<body><div class="app">
-  <header class="topbar"><div class="brand"><div class="mark">S</div><div><div class="eyebrow">Studio delivery</div><h1>Sonidos 2025</h1></div></div><button class="install" id="install" hidden>Install</button></header>
-  <main class="scroll"><div class="wrap">
-    <section class="hero"><div><div class="eyebrow">Complete performance archive</div><h2>Every song. Every angle. One room.</h2><p>Stream the finished videos and masters from the Sonidos studio session. Audio-only playback is available for listening with the phone locked.</p></div><div class="hero-meta"><div><strong id="song-count">—</strong><span>songs</span></div><div><strong id="video-count">—</strong><span>videos</span></div></div></section>
-    <section class="player" aria-label="Selected performance"><div class="player-head"><strong id="now">Choose a song</strong><span id="now-meta">Video and audio</span></div><video id="video" controls playsinline preload="metadata"></video><audio id="audio" controls preload="none"></audio></section>
-    <div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="true" data-view="songs">Songs</button><button class="tab" role="tab" aria-selected="false" data-view="highlights">Highlights</button><button class="tab" role="tab" aria-selected="false" data-view="full">Full set</button></div>
-    <section id="songs-view" class="section"><h2>Individual songs</h2><div class="grid" id="songs"></div></section>
-    <section id="highlights-view" class="section" hidden><h2>Highlight edits</h2><div class="grid" id="highlights"></div></section>
-    <section id="full-view" class="section" hidden><h2>Complete program</h2><div class="grid" id="full"></div></section>
-  </div></main>
-  <footer class="bottom"><span>Install from the browser menu for the phone shell.</span><a href="./data.json">manifest</a></footer>
-</div><script src="./app.js"></script></body></html>
+<body>
+<div class="app">
+  <header class="header" data-app-header>
+    <a class="brand" href="./" aria-label="Caceta de Golira home">Caceta de Golira <span>Sonidos 2025</span></a>
+    <nav class="mode-nav" aria-label="Media type">
+      <button data-mode="videos" aria-pressed="true">Videos</button>
+      <button data-mode="audio" aria-pressed="false">Audio</button>
+    </nav>
+    <button class="install quiet" id="install" hidden>Install</button>
+  </header>
+  <main class="scroll" id="main">
+    <div class="content">
+      <div id="install-help" class="notice" hidden><span>Share → Add to Home Screen</span><button class="quiet" id="dismiss-install" aria-label="Dismiss install hint">Close</button></div>
+      <section id="video-player" class="video-player" aria-label="Video player" hidden>
+        <div class="player-head"><h1 id="video-title"></h1><button class="quiet" id="close-video">Close</button></div>
+        <div class="video-stage"><video id="video" controls playsinline preload="none"></video><iframe id="youtube" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen hidden></iframe></div>
+        <a id="youtube-link" class="text-link" target="_blank" rel="noopener" hidden>Open on YouTube</a>
+      </section>
+      <section id="videos-view" aria-label="Videos">
+        <div class="library-toolbar">
+          <div class="filters" aria-label="Video category"><button data-category="songs" aria-pressed="true">Songs</button><button data-category="full" aria-pressed="false">Full set</button></div>
+          <span class="count" id="video-count"></span>
+        </div>
+        <div id="video-grid" class="video-grid"></div>
+      </section>
+      <section id="audio-view" aria-label="Audio" hidden>
+        <div class="library-toolbar"><div class="filters" aria-label="Audio filter"><button data-audio-filter="all" aria-pressed="true">All songs</button><button data-audio-filter="saved" aria-pressed="false">Saved offline</button></div><button class="quiet" id="play-all">Play all</button></div>
+        <div id="audio-list" class="audio-list"></div>
+        <p id="audio-empty" class="empty" hidden>No saved songs.</p>
+      </section>
+      <p id="status" class="status" role="status" aria-live="polite" hidden></p>
+    </div>
+  </main>
+  <footer id="audio-dock" class="audio-dock" data-app-nav hidden>
+    <div class="playing-track"><span class="now-label">Playing</span><strong id="audio-title"></strong></div>
+    <audio id="audio" controls preload="none"></audio>
+    <div class="transport"><button id="previous" class="quiet" aria-label="Previous song">Previous</button><button id="next" class="quiet" aria-label="Next song">Next</button><button id="close-audio" class="quiet" aria-label="Close audio player">Close</button></div>
+  </footer>
+</div>
+<script src="./catalog.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

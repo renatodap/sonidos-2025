@@ -1,4 +1,4 @@
-{
+window.SONIDOS_CATALOG = {
   "title": "Sonidos 2025",
   "mediaBase": "https://renatodap.me/s3/sonidos-2025/",
   "songs": [
@@ -273,4 +273,4 @@
   "fullThumbnail": "./thumbnails/full-set-16x9.webp",
   "fullArtwork": "./thumbnails/full-set-square.webp",
   "artworkReady": false
-}
+};
