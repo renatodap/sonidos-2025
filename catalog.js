@@ -9,7 +9,7 @@ window.SONIDOS_CATALOG = {
       "duration": 468.06204081632654,
       "video": "songs/01-warpigs.mp4",
       "audio": "audio/01-warpigs.m4a?v=cbab33edd419",
-      "master": "audio/01-warpigs.wav",
+      "master": "audio/01-warpigs.wav?v=7c9d83d5e8b6",
       "thumbnail": "./thumbnails/01-warpigs-16x9.webp",
       "artist": "Black Sabbath",
       "thumbnailFallback": "./thumbs/01-warpigs.jpg",
@@ -17,7 +17,7 @@ window.SONIDOS_CATALOG = {
       "artworkReady": false,
       "audioReady": true,
       "videoReady": true,
-      "masterReady": false,
+      "masterReady": true,
       "youtubeId": "CuVkTWLp6Bs"
     },
     {
@@ -27,7 +27,7 @@ window.SONIDOS_CATALOG = {
       "duration": 302.02083900226756,
       "video": "songs/02-alive.mp4",
       "audio": "audio/02-alive.m4a?v=e4f0fb8c5739",
-      "master": "audio/02-alive.wav",
+      "master": "audio/02-alive.wav?v=c6f5ba21b413",
       "thumbnail": "./thumbnails/02-alive-16x9.webp",
       "artist": "Pearl Jam",
       "thumbnailFallback": "./thumbs/02-alive.jpg",
@@ -35,7 +35,7 @@ window.SONIDOS_CATALOG = {
       "artworkReady": true,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": true
     },
     {
       "number": 3,
@@ -44,7 +44,7 @@ window.SONIDOS_CATALOG = {
       "duration": 292.0751020408163,
       "video": "songs/03-belltolls.mp4",
       "audio": "audio/03-belltolls.m4a?v=f10e0773e69d",
-      "master": "audio/03-belltolls.wav",
+      "master": "audio/03-belltolls.wav?v=bf69d2ffa0c1",
       "thumbnail": "./thumbnails/03-belltolls-16x9.webp",
       "artist": "Metallica",
       "thumbnailFallback": "./thumbs/03-belltolls.jpg",
@@ -52,7 +52,7 @@ window.SONIDOS_CATALOG = {
       "artworkReady": false,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": true
     },
     {
       "number": 4,
@@ -61,7 +61,7 @@ window.SONIDOS_CATALOG = {
       "duration": 600.0587755102041,
       "video": "songs/04-numb.mp4",
       "audio": "audio/04-numb.m4a?v=d2393fc34404",
-      "master": "audio/04-numb.wav",
+      "master": "audio/04-numb.wav?v=dfa406e518d4",
       "thumbnail": "./thumbnails/04-numb-16x9.webp",
       "artist": "Pink Floyd",
       "thumbnailFallback": "./thumbs/04-numb.jpg",
@@ -69,7 +69,7 @@ window.SONIDOS_CATALOG = {
       "artworkReady": false,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": true
     },
     {
       "number": 5,
@@ -78,15 +78,16 @@ window.SONIDOS_CATALOG = {
       "duration": 311.0660997732426,
       "video": "songs/05-wishhere.mp4",
       "audio": "audio/05-wishhere.m4a?v=c2a5e8ad629e",
-      "master": "audio/05-wishhere.wav",
+      "master": "audio/05-wishhere.wav?v=3d1f5101cf7f",
       "thumbnail": "./thumbnails/05-wishhere-16x9.webp",
       "artist": "Pink Floyd",
       "thumbnailFallback": "./thumbs/05-wishhere.jpg",
       "artwork": "./thumbnails/05-wishhere-square.webp",
       "artworkReady": false,
       "audioReady": true,
-      "videoReady": false,
-      "masterReady": false
+      "videoReady": true,
+      "masterReady": true,
+      "youtubeId": "IB8TieRb03A"
     },
     {
       "number": 6,
@@ -95,7 +96,7 @@ window.SONIDOS_CATALOG = {
       "duration": 364.5444671201814,
       "video": "songs/06-time.mp4",
       "audio": "audio/06-time.m4a?v=a767eaf5245c",
-      "master": "audio/06-time.wav",
+      "master": "audio/06-time.wav?v=47f20237d02b",
       "thumbnail": "./thumbnails/06-time-16x9.webp",
       "artist": "Pink Floyd",
       "thumbnailFallback": "./thumbs/06-time.jpg",
@@ -103,7 +104,7 @@ window.SONIDOS_CATALOG = {
       "artworkReady": false,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": true
     },
     {
       "number": 7,
@@ -112,7 +113,7 @@ window.SONIDOS_CATALOG = {
       "duration": 440.0604081632653,
       "video": "songs/07-mania.mp4",
       "audio": "audio/07-mania.m4a?v=d2156326ec4b",
-      "master": "audio/07-mania.wav",
+      "master": "audio/07-mania.wav?v=3d1cf7f224fa",
       "thumbnail": "./thumbnails/07-mania-16x9.webp",
       "artist": "Rita Lee",
       "thumbnailFallback": "./thumbs/07-mania.jpg",
@@ -120,7 +121,7 @@ window.SONIDOS_CATALOG = {
       "artworkReady": false,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": true
     },
     {
       "number": 8,
@@ -129,7 +130,7 @@ window.SONIDOS_CATALOG = {
       "duration": 350.0669387755102,
       "video": "songs/08-descobridor.mp4",
       "audio": "audio/08-descobridor.m4a?v=1fb0788ce8bb",
-      "master": "audio/08-descobridor.wav",
+      "master": "audio/08-descobridor.wav?v=a801a2ca7ff9",
       "thumbnail": "./thumbnails/08-descobridor-16x9.webp",
       "artist": "Tim Maia",
       "thumbnailFallback": "./thumbs/08-descobridor.jpg",
@@ -137,7 +138,7 @@ window.SONIDOS_CATALOG = {
       "artworkReady": false,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": true
     },
     {
       "number": 9,
@@ -163,7 +164,7 @@ window.SONIDOS_CATALOG = {
       "duration": 322.06367346938777,
       "video": "songs/10-cantstop.mp4",
       "audio": "audio/10-cantstop.m4a?v=68ebdd26edf9",
-      "master": "audio/10-cantstop.wav",
+      "master": "audio/10-cantstop.wav?v=6d9e8f3ba5c7",
       "thumbnail": "./thumbnails/10-cantstop-16x9.webp",
       "artist": "Red Hot Chili Peppers",
       "thumbnailFallback": "./thumbs/10-cantstop.jpg",
@@ -171,7 +172,7 @@ window.SONIDOS_CATALOG = {
       "artworkReady": false,
       "audioReady": true,
       "videoReady": false,
-      "masterReady": false
+      "masterReady": true
     },
     {
       "number": 11,
@@ -358,5 +359,6 @@ window.SONIDOS_CATALOG = {
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T20:11:09Z"
+  "releasedAt": "2026-09-21T20:30:57Z",
+  "fullVideoReady": false
 };
