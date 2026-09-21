@@ -285,7 +285,7 @@
       "label": "aerials",
       "title": "Aerials",
       "duration": 314.07020408163265,
-      "video": "songs/14-aerials.mp4",
+      "video": "stream/14-aerials.mp4?v=e8146a9ae8a0",
       "audio": "audio/14-aerials.m4a?v=30a974add8ed",
       "master": "audio/14-aerials.wav",
       "thumbnail": "./thumbnails/14-aerials-16x9.webp",
@@ -294,12 +294,13 @@
       "artwork": "./thumbnails/14-aerials-square.webp",
       "artworkReady": true,
       "audioReady": true,
-      "videoReady": false,
+      "videoReady": true,
       "masterReady": false,
       "artworkSourceSHA": {
         "16x9": "42abf503d868107b664b4b0990f7a51ed47ec8512d4f5dfa1238fcfffc342954",
         "square": "7cfc5065ec61472127f09c510e9fd27c18fbdf35e4293fe8264069e117449374"
-      }
+      },
+      "nativeVideoSHA": "e8146a9ae8a0ec464ab12e007fbde0c2602ebaa21df6deff4e1f80c25b56e83b"
     },
     {
       "number": 15,
@@ -424,7 +425,7 @@
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T21:32:15Z",
+  "releasedAt": "2026-09-21T21:39:16Z",
   "fullVideoReady": false,
   "fullArtworkReady": false,
   "fullAudioReady": true,
