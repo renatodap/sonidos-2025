@@ -328,7 +328,7 @@ window.SONIDOS_CATALOG = {
       "label": "chain",
       "title": "The Chain",
       "duration": 346.0704081632653,
-      "video": "songs/16-chain.mp4",
+      "video": "stream/16-chain.mp4?v=2fe1b2050701",
       "audio": "audio/16-chain.m4a?v=d5fe0e6b3577",
       "master": "audio/16-chain.wav",
       "thumbnail": "./thumbnails/16-chain-16x9.webp",
@@ -337,8 +337,9 @@ window.SONIDOS_CATALOG = {
       "artwork": "./thumbnails/16-chain-square.webp",
       "artworkReady": false,
       "audioReady": true,
-      "videoReady": false,
-      "masterReady": false
+      "videoReady": true,
+      "masterReady": false,
+      "nativeVideoSHA": "2fe1b2050701bc3dd96502e87283b7db371c09ef217d20864b84d0db7aad699e"
     },
     {
       "number": 17,
@@ -425,7 +426,7 @@ window.SONIDOS_CATALOG = {
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T21:39:16Z",
+  "releasedAt": "2026-09-21T21:47:28Z",
   "fullVideoReady": false,
   "fullArtworkReady": false,
   "fullAudioReady": true,
