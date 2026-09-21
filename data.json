@@ -405,7 +405,7 @@
       "label": "ironman",
       "title": "Iron Man",
       "duration": 398.57643990929705,
-      "video": "songs/20-ironman.mp4",
+      "video": "stream/20-ironman.mp4?v=224370d33648",
       "audio": "audio/20-ironman.m4a?v=60041121f072",
       "master": "audio/20-ironman.wav",
       "thumbnail": "./thumbnails/20-ironman-16x9.webp",
@@ -414,8 +414,9 @@
       "artwork": "./thumbnails/20-ironman-square.webp",
       "artworkReady": false,
       "audioReady": true,
-      "videoReady": false,
-      "masterReady": false
+      "videoReady": true,
+      "masterReady": false,
+      "nativeVideoSHA": "224370d33648d4573f490505c89174e9e42c07928d3fcfef0bd1a587db118465"
     }
   ],
   "fullVideo": "full/FULL-Sonidos-Studio-Cuts.mp4",
@@ -430,7 +431,7 @@
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T21:54:57Z",
+  "releasedAt": "2026-09-21T21:56:19Z",
   "fullVideoReady": false,
   "fullArtworkReady": false,
   "fullAudioReady": true,
