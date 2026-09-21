@@ -307,7 +307,7 @@
       "label": "evenflow",
       "title": "Even Flow",
       "duration": 280.0587755102041,
-      "video": "songs/15-evenflow.mp4",
+      "video": "stream/15-evenflow.mp4?v=029332a8f1bb",
       "audio": "audio/15-evenflow.m4a?v=683da6bbdb55",
       "master": "audio/15-evenflow.wav",
       "thumbnail": "./thumbnails/15-evenflow-16x9.webp",
@@ -316,12 +316,13 @@
       "artwork": "./thumbnails/15-evenflow-square.webp",
       "artworkReady": true,
       "audioReady": true,
-      "videoReady": false,
+      "videoReady": true,
       "masterReady": false,
       "artworkSourceSHA": {
         "16x9": "15a437239d8585c235ce27a8748de4a2147e890b6ec98f4d891b94ee349059b9",
         "square": "e3b3c647de065af0d2f434062f641c0108955ae95b9ad3d0f67420bb6b9eb244"
-      }
+      },
+      "nativeVideoSHA": "029332a8f1bba7de0c90ef9fe2d498315f26653cb3ecac59900db3bfe862901f"
     },
     {
       "number": 16,
@@ -426,7 +427,7 @@
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T21:47:28Z",
+  "releasedAt": "2026-09-21T21:48:34Z",
   "fullVideoReady": false,
   "fullArtworkReady": false,
   "fullAudioReady": true,
