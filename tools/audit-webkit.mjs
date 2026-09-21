@@ -9,7 +9,7 @@ const errors = [];
 page.on('pageerror', error => errors.push(error.message));
 try {
   await page.goto(base, { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => window.SONIDOS_CATALOG?.songs);
+  await page.waitForFunction(() => window.SONIDOS_CATALOG?.songs && document.querySelectorAll('.video-card').length > 0);
   await page.getByRole('button', { name: 'Audio', exact: true }).click();
   await page.getByRole('button', { name: 'Play Creep', exact: true }).click();
   await page.waitForFunction(() => document.querySelector('#audio').currentTime > 0, {}, { timeout: 30000 });
