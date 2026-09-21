@@ -5,7 +5,7 @@
     {
       "number": 1,
       "label": "warpigs",
-      "title": "01 \u00b7 Warpigs",
+      "title": "01 \u00b7 War Pigs",
       "duration": "468 seconds",
       "video": "songs/01-warpigs.mp4",
       "audio": "audio/01-warpigs.wav"
@@ -21,7 +21,7 @@
     {
       "number": 3,
       "label": "belltolls",
-      "title": "03 \u00b7 Belltolls",
+      "title": "03 \u00b7 For Whom the Bell Tolls",
       "duration": "292 seconds",
       "video": "songs/03-belltolls.mp4",
       "audio": "audio/03-belltolls.wav"
@@ -37,7 +37,7 @@
     {
       "number": 5,
       "label": "wishhere",
-      "title": "05 \u00b7 Wishhere",
+      "title": "05 \u00b7 Wish You Were Here",
       "duration": "311 seconds",
       "video": "songs/05-wishhere.mp4",
       "audio": "audio/05-wishhere.wav"
@@ -61,7 +61,7 @@
     {
       "number": 8,
       "label": "descobridor",
-      "title": "08 \u00b7 Descobridor",
+      "title": "08 \u00b7 O Descobridor",
       "duration": "350 seconds",
       "video": "songs/08-descobridor.mp4",
       "audio": "audio/08-descobridor.wav"
@@ -69,7 +69,7 @@
     {
       "number": 9,
       "label": "hotelcalifornia",
-      "title": "09 \u00b7 Hotelcalifornia",
+      "title": "09 \u00b7 Hotel California",
       "duration": "473 seconds",
       "video": "songs/09-hotelcalifornia.mp4",
       "audio": "audio/09-hotelcalifornia.wav"
@@ -77,7 +77,7 @@
     {
       "number": 10,
       "label": "cantstop",
-      "title": "10 \u00b7 Cantstop",
+      "title": "10 \u00b7 Can't Stop",
       "duration": "322 seconds",
       "video": "songs/10-cantstop.mp4",
       "audio": "audio/10-cantstop.wav"
@@ -117,7 +117,7 @@
     {
       "number": 15,
       "label": "evenflow",
-      "title": "15 \u00b7 Evenflow",
+      "title": "15 \u00b7 Even Flow",
       "duration": "280 seconds",
       "video": "songs/15-evenflow.mp4",
       "audio": "audio/15-evenflow.wav"
@@ -125,7 +125,7 @@
     {
       "number": 16,
       "label": "chain",
-      "title": "16 \u00b7 Chain",
+      "title": "16 \u00b7 The Chain",
       "duration": "346 seconds",
       "video": "songs/16-chain.mp4",
       "audio": "audio/16-chain.wav"
@@ -149,7 +149,7 @@
     {
       "number": 19,
       "label": "killing",
-      "title": "19 \u00b7 Killing",
+      "title": "19 \u00b7 Killing in the Name",
       "duration": "345 seconds",
       "video": "songs/19-killing.mp4",
       "audio": "audio/19-killing.wav"
@@ -157,7 +157,7 @@
     {
       "number": 20,
       "label": "ironman",
-      "title": "20 \u00b7 Ironman",
+      "title": "20 \u00b7 Iron Man",
       "duration": "399 seconds",
       "video": "songs/20-ironman.mp4",
       "audio": "audio/20-ironman.wav"
