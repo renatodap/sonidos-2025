@@ -259,7 +259,7 @@ window.SONIDOS_CATALOG = {
       "label": "everlong",
       "title": "Everlong",
       "duration": 281.4652607709751,
-      "video": "songs/13-everlong.mp4",
+      "video": "stream/13-everlong.mp4?v=906aa7d3472c",
       "audio": "audio/13-everlong.m4a?v=06d95588625e",
       "master": "audio/13-everlong.wav",
       "thumbnail": "./thumbnails/13-everlong-16x9.webp",
@@ -268,12 +268,13 @@ window.SONIDOS_CATALOG = {
       "artwork": "./thumbnails/13-everlong-square.webp",
       "artworkReady": true,
       "audioReady": true,
-      "videoReady": false,
+      "videoReady": true,
       "masterReady": false,
       "artworkSourceSHA": {
         "16x9": "bd58e2f14bc32088070809405419532527ab21292508efff05cc108848066552",
         "square": "a938874597a662d4ec3ced226dbc7d900e8bb19de3297b5218cf3ce74c534bc0"
-      }
+      },
+      "nativeVideoSHA": "906aa7d3472c3013877eb4bb43e01791b860e8a465e8c8d2b286a76a123d4322"
     },
     {
       "number": 14,
@@ -419,6 +420,8 @@ window.SONIDOS_CATALOG = {
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T21:13:51Z",
-  "fullVideoReady": false
+  "releasedAt": "2026-09-21T21:24:16Z",
+  "fullVideoReady": false,
+  "fullArtworkReady": false,
+  "fullAudioReady": false
 };

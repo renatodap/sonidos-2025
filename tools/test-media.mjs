@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 const base = (process.argv[2] || 'http://127.0.0.1:3011/sonidos-2025/').replace(/\/?$/, '/');
 const catalog = JSON.parse(await fs.readFile(new URL('../data.json', import.meta.url), 'utf8'));
 catalog.audioReady = true;
+catalog.fullAudioReady = true;
 catalog.mediaReady = true;
 catalog.songs = catalog.songs.slice(0, 2).map((song, i) => ({ ...song, audio: `${base}fixture-${i}.wav` }));
 catalog.fullAudio = `${base}fixture-full.wav`;

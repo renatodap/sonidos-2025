@@ -17,7 +17,7 @@ try {
  await page.getByRole('button',{name:'Play Under the Bridge',exact:true}).click();
  assert.match(await page.locator('#youtube').getAttribute('src'),/embed\/QP-KnDjYqbk/);
  await page.getByRole('button',{name:'Audio',exact:true}).click();
- assert.equal(await page.locator('.audio-row').count(),20);
+ assert.equal(await page.locator('.audio-row').count(),20+(catalog.fullAudioReady?1:0));
  assert.equal(await page.locator('.audio-row button.track-play:disabled').count(),0);
  await page.getByRole('button',{name:'Play Creep',exact:true}).click();
  await page.waitForFunction(()=>document.querySelector('#audio').currentTime>0,{},{timeout:30000});
