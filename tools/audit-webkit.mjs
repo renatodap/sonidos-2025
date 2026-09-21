@@ -31,7 +31,9 @@ try {
   // Isolate the installed WebKit offline-emulation limitation from the app:
   // create a valid one-second PCM WAV directly in memory, with no network,
   // cache, service worker, codec dependency, or async click handler involved.
-  await page.evaluate(() => {
+  const fixturePage = await context.newPage();
+  await fixturePage.setContent('<main>Generated sound fixture</main>');
+  await fixturePage.evaluate(() => {
     const samples = 48000;
     const bytes = new ArrayBuffer(44 + samples * 2);
     const view = new DataView(bytes);
@@ -42,7 +44,6 @@ try {
     text(36, 'data'); view.setUint32(40, samples * 2, true);
     for (let i = 0; i < samples; i++) view.setInt16(44 + i * 2, Math.sin(i * 2 * Math.PI * 440 / 48000) * 2000, true);
     const url = URL.createObjectURL(new Blob([bytes], { type: 'audio/wav' }));
-    document.querySelector('#audio').pause();
     document.body.innerHTML = '<button id="fixture-play">Test generated sound</button><audio id="fixture"></audio>';
     document.querySelector('#fixture-play').onclick = () => {
       const audio = document.querySelector('#fixture');
@@ -54,14 +55,15 @@ try {
   const fixture = [];
   for (const offline of [false, true]) {
     await context.setOffline(offline);
-    await page.locator('#fixture-play').click();
-    await page.waitForFunction(() => document.querySelector('#fixture').currentTime > 0 || document.querySelector('#fixture').error, {}, { timeout: 5000 });
-    fixture.push({ offline, ...await page.evaluate(() => {
+    await fixturePage.locator('#fixture-play').click();
+    await fixturePage.waitForFunction(() => document.querySelector('#fixture').currentTime > 0 || document.querySelector('#fixture').error, {}, { timeout: 5000 });
+    fixture.push({ offline, ...await fixturePage.evaluate(() => {
       const audio = document.querySelector('#fixture');
       return { currentTime: audio.currentTime, readyState: audio.readyState, error: audio.error?.code ?? null, playError: window.fixturePlayError };
     }) });
   }
   assert.ok(fixture[0].currentTime > 0, 'Generated PCM WAV must be valid and playable.');
+  assert.deepEqual(errors, []);
   console.log(JSON.stringify({
     url: base, engine: 'webkit', streamedAudioAndSeek: true, cacheSave: true, cachedBlobPlaybackWhileOnline: cachedPlayback,
     mediaSession: true, generatedPcmFixture: fixture, simulatedOfflineMedia: fixture[1].currentTime > 0 ? 'passed' : 'blocked by engine emulation, including generated PCM fixture',
