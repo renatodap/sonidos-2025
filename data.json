@@ -205,7 +205,7 @@
       "label": "cantstop",
       "title": "Can't Stop",
       "duration": 322.06367346938777,
-      "video": "songs/10-cantstop.mp4",
+      "video": "songs/10-cantstop.mp4?v=49e710a0ce7d",
       "audio": "audio/10-cantstop.m4a?v=68ebdd26edf9",
       "master": "audio/10-cantstop.wav?v=6d9e8f3ba5c7",
       "thumbnail": "./thumbnails/10-cantstop-16x9.webp",
@@ -214,8 +214,9 @@
       "artwork": "./thumbnails/10-cantstop-square.webp",
       "artworkReady": false,
       "audioReady": true,
-      "videoReady": false,
-      "masterReady": true
+      "videoReady": true,
+      "masterReady": true,
+      "nativeVideoSHA": "49e710a0ce7d1e870ca594e2c2ea7d8f75365373d52d70245dccc69bee264d48"
     },
     {
       "number": 11,
@@ -418,6 +419,6 @@
   "artworkReady": false,
   "releaseVersion": "v1",
   "hidePending": true,
-  "releasedAt": "2026-09-21T21:07:17Z",
+  "releasedAt": "2026-09-21T21:13:51Z",
   "fullVideoReady": false
 }
