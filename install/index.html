@@ -9,6 +9,8 @@
   <link rel="manifest" href="../manifest.webmanifest">
   <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png?v=logo-20260921">
   <link rel="icon" href="../icons/icon-192.png?v=logo-20260921">
+  <link rel="stylesheet" href="../installer.css">
+  <script src="../installer.js"></script>
   <title>Install Sonidos app</title>
   <style>
     :root { color-scheme: dark; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #171716; color: #f5f3ee; }
@@ -17,57 +19,14 @@
     main { text-align: center; max-width: 340px; }
     .install-button { display: inline-block; text-decoration: none; border: 0; border-radius: 14px; background: #f5f3ee; color: #171716; padding: 19px 27px; font: inherit; font-size: 18px; font-weight: 650; cursor: pointer; min-height: 60px; touch-action: manipulation; }
     .install-button:focus-visible { outline: 3px solid #efad72; outline-offset: 5px; }
-    .install-button[aria-disabled="true"] { opacity: .7; cursor: wait; }
+    .install-button:disabled { opacity: .7; cursor: wait; }
     p { margin: 24px 0 0; font-size: 15px; line-height: 1.65; color: #ccc9c0; }
     [hidden] { display: none; }
   </style>
 </head>
 <body>
   <main>
-    <a id="install" class="install-button" href="./sonidos.mobileconfig">Install Sonidos app</a>
-    <p id="help" role="status" aria-live="polite" hidden></p>
+    <button id="install" class="install-button" type="button" data-sonidos-install="landing">Install Sonidos app</button>
   </main>
-  <script>
-    const app = new URL('../', location.href);
-    const button = document.querySelector('#install');
-    const help = document.querySelector('#help');
-    let installPrompt = null;
-    let installing = false;
-    const standalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
-    if (standalone()) location.replace(app.href);
-    window.addEventListener('beforeinstallprompt', event => {
-      event.preventDefault();
-      installPrompt = event;
-      help.hidden = true;
-    });
-    window.addEventListener('appinstalled', () => location.replace(app.href));
-    if ('serviceWorker' in navigator) navigator.serviceWorker.register(new URL('sw.js', app), { scope: app.pathname }).catch(() => {});
-    button.addEventListener('click', async event => {
-      if (installing) { event.preventDefault(); return; }
-      if (standalone()) { event.preventDefault(); location.assign(app.href); return; }
-      const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-      if (ios) {
-        help.textContent = 'Allow the download, then open Settings → Profile Downloaded → Install.';
-        help.hidden = false;
-        return;
-      }
-      event.preventDefault();
-      if (installPrompt) {
-        const prompt = installPrompt;
-        installPrompt = null;
-        installing = true;
-        button.setAttribute('aria-disabled', 'true');
-        try { await prompt.prompt(); await prompt.userChoice; }
-        catch {
-          help.textContent = 'Open your browser menu → Install app.';
-          help.hidden = false;
-        }
-        finally { installing = false; button.removeAttribute('aria-disabled'); }
-        return;
-      }
-      help.textContent = 'Open your browser menu → Install app. If unavailable, open this link in Chrome or Edge.';
-      help.hidden = false;
-    });
-  </script>
 </body>
 </html>

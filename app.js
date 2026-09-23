@@ -8,7 +8,7 @@
   const audio = $('#audio');
   const video = $('#video');
   const data = window.SONIDOS_CATALOG;
-  const state = { mode: 'videos', category: 'songs', audioFilter: 'all', selected: null, saved: new Set(), saving: new Map(), objectURL: null, playToken: 0, deferredInstall: null };
+  const state = { mode: 'videos', category: 'songs', audioFilter: 'all', selected: null, saved: new Set(), saving: new Map(), objectURL: null, playToken: 0 };
   const full = { id: 'full-set', title: 'Full set', video: data.fullVideo, audio: data.fullAudio, audioAliases: data.fullAudioAliases, master: data.fullMaster, duration: data.fullDuration, thumbnail: data.fullThumbnail || './thumbs/full.jpg', thumbnailFallback: './thumbs/full.jpg', artwork: data.fullArtwork, youtubeId: data.fullYoutubeId, audioReady: data.fullAudioReady, videoReady: data.fullVideoReady, artworkReady: data.fullArtworkReady };
   const tracks = [...data.songs, full];
   const key = (item) => item.id || item.label || item.title;
@@ -298,14 +298,5 @@
   window.addEventListener('online', () => { updateTransport(); announce(''); });
   window.addEventListener('offline', updateTransport);
   document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshSaved(); });
-  window.addEventListener('beforeinstallprompt', (event) => { event.preventDefault(); state.deferredInstall = event; $('#install').hidden = false; });
-  $('#install').addEventListener('click', async () => {
-    if (state.deferredInstall) { await state.deferredInstall.prompt(); state.deferredInstall = null; $('#install').hidden = true; }
-  });
-  const ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  let dismissed = false; try { dismissed = localStorage.getItem('sonidos-install-dismissed') === '1'; } catch {}
-  $('#install-help').hidden = !(ios && !matchMedia('(display-mode: standalone)').matches && !navigator.standalone && !dismissed);
-  $('#dismiss-install').addEventListener('click', () => { $('#install-help').hidden = true; try { localStorage.setItem('sonidos-install-dismissed', '1'); } catch {} });
   renderVideos(); renderAudio(); refreshSaved();
-  if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register(new URL('./sw.js', APP_URL), { scope: APP_URL.pathname }).catch(() => {});
 })();

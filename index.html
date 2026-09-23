@@ -11,6 +11,8 @@
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png?v=logo-20260921">
   <link rel="icon" href="./icons/icon-192.png?v=logo-20260921">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./installer.css">
+  <script src="./installer.js"></script>
   <title>Caceta de Golira · Sonidos 2025</title>
 </head>
 <body>
@@ -21,11 +23,10 @@
       <button data-mode="videos" aria-pressed="true">Videos</button>
       <button data-mode="audio" aria-pressed="false">Audio</button>
     </nav>
-    <button class="install quiet" id="install" hidden>Install</button>
+    <button class="install quiet" id="install" data-sonidos-install="app" hidden>Install</button>
   </header>
   <main class="scroll" id="main">
     <div class="content">
-      <div id="install-help" class="notice" hidden><span>Share → Add to Home Screen</span><button class="quiet" id="dismiss-install" aria-label="Dismiss install hint">Close</button></div>
       <section id="video-player" class="video-player" aria-label="Video player" hidden>
         <div class="player-head"><h1 id="video-title"></h1><button class="quiet" id="close-video">Close</button></div>
         <div class="video-stage"><video id="video" controls playsinline preload="none"></video><iframe id="youtube" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen hidden></iframe></div>

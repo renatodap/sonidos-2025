@@ -2,6 +2,21 @@
 
 Static media catalog at https://renatodap.me/sonidos-2025/.
 
+The single-button install page is /sonidos-2025/install/. It shares
+installer.js and installer.css with the main app. A captured browser install
+event takes priority; otherwise a visual dialog shows device/browser-specific
+steps in English or Portuguese. Known embedded browsers get copy-and-open
+instructions. Detection is advisory: iPad can use a desktop user agent, and some
+embedded browsers identify as Safari, so every guide includes a fallback.
+Standalone mode opens the app instead of showing installation instructions.
+The retired .mobileconfig URL redirects to this page and no longer downloads
+a configuration profile.
+
+Run node tools/audit-install.mjs http://127.0.0.1:3011/sonidos-2025/
+for browser/language selection, dialog accessibility, prompt lifecycle and
+offline navigation checks. Native prompt tests use synthetic browser events;
+they do not claim installation on a physical iPhone.
+
 - `data.json` is the source catalog. Run `npm run build` after editing it to regenerate `catalog.js`.
 - Only enable `mediaReady` and `audioReady` after finished files are public and verified. Individual items support `videoReady`/`audioReady` overrides; full-set overrides are `fullVideoReady`/`fullAudioReady`. Keep global flags false during incremental publication.
 - Song audio is `audio/{NN-label}.m4a`; the `master` path retains the WAV counterpart. Full set audio is `full/FULL-Sonidos-Studio-Cuts.m4a`.

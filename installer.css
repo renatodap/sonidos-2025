@@ -1,0 +1,45 @@
+.si-modal-open { overflow: hidden; }
+.si-dialog {
+  color-scheme: dark; box-sizing: border-box; width: min(440px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px); margin: auto; padding: 24px;
+  overflow: auto; overscroll-behavior: contain; border: 1px solid #46433e;
+  border-radius: 22px; background: #22211f; color: #f5f3ee;
+  box-shadow: 0 20px 80px #0008; font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.si-dialog::backdrop { background: #000a; }
+.si-dialog *, .si-dialog *::before, .si-dialog *::after { box-sizing: border-box; }
+.si-dialog [hidden] { display: none !important; }
+.si-header { display: flex; align-items: center; gap: 12px; margin-bottom: 26px; }
+.si-logo { width: 48px; height: 48px; flex: 0 0 48px; border-radius: 12px; }
+.si-device { margin: 0 0 2px; color: #bcb7ae; font-size: 12px; }
+.si-title { margin: 0; font-size: 22px; line-height: 1.25; font-weight: 650; letter-spacing: -.025em; }
+.si-dialog button { cursor: pointer; font: inherit; touch-action: manipulation; }
+.si-dialog button:disabled { opacity: .6; cursor: wait; }
+.si-dialog :focus-visible { outline: 2px solid #eda76f; outline-offset: 3px; }
+.si-close { display: grid; place-items: center; align-self: flex-start; width: 44px; height: 44px; margin: -8px -10px 0 auto; flex: 0 0 44px; padding: 11px; color: #d6d2ca; border: 0; background: transparent; border-radius: 50%; }
+.si-dialog svg { width: 28px; height: 28px; display: block; }
+.si-close svg { width: 22px; height: 22px; }
+.si-steps { display: grid; gap: 22px; padding: 0; margin: 0; list-style: none; }
+.si-step { display: flex; align-items: center; gap: 18px; }
+.si-visual { position: relative; display: grid; place-items: center; flex: 0 0 58px; width: 58px; height: 64px; border: 1px solid #504a40; border-radius: 13px; color: #efad72; background: #302b25; }
+.si-visual svg { width: 29px; height: 29px; }
+.si-number { position: absolute; top: -7px; left: -7px; display: grid; place-items: center; width: 21px; height: 21px; border-radius: 50%; color: #22211f; background: #efad72; font-size: 11px; font-weight: 700; }
+.si-step-copy { min-width: 0; }
+.si-step h3 { margin: 0; color: #f5f3ee; font-size: 15px; font-weight: 650; line-height: 1.4; }
+.si-step p { margin: 5px 0 0; color: #c3beb5; font-size: 13px; line-height: 1.5; }
+.si-status { margin: 20px 0 0; color: #efad72; font-size: 13px; }
+.si-primary { display: block; width: 100%; margin-top: 24px; padding: 13px 18px; border: 0; border-radius: 12px; font-weight: 650 !important; background: #f5f3ee; color: #171716; }
+.si-alternative { margin-top: 25px; border-top: 1px solid #46433e; padding-top: 17px; color: #c3beb5; font-size: 12px; }
+.si-alternative summary { padding: 6px 0; cursor: pointer; min-height: 32px; }
+.si-alternative p { margin: 10px 0; line-height: 1.5; }
+.si-copy-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.si-copy-row input { min-width: 0; flex: 1 1 180px; width: 100%; border: 1px solid #575249; border-radius: 8px; background: #171716; color: #d6d2ca; padding: 10px; font: inherit; font-size: 16px; }
+.si-copy { padding: 10px 12px; border: 1px solid #575249; border-radius: 8px; background: #302b25; color: #f5f3ee; min-height: 44px; }
+@media (max-width: 480px) {
+  .si-dialog { margin: auto auto max(12px, env(safe-area-inset-bottom)); width: calc(100% - 24px); max-height: calc(100dvh - 24px); padding: 22px; }
+}
+@media (max-width: 350px) {
+  .si-dialog { padding: 18px; }
+  .si-step { gap: 13px; }
+  .si-title { font-size: 20px; }
+}
