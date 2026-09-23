@@ -1,4 +1,4 @@
-const SHELL_CACHE = 'sonidos-shell-v1-install-20260923';
+const SHELL_CACHE = 'sonidos-shell-v1-profile-install-20260923';
 const BASE = new URL('./', self.location.href);
 const SHELL = ['index.html', 'install/index.html', 'branding/caceta-de-golira.webp', 'styles.css', 'app.js', 'catalog.js', 'manifest.webmanifest', 'icons/icon-192.png?v=logo-20260921', 'icons/icon-512.png?v=logo-20260921', 'icons/icon-192-maskable.png?v=logo-20260921', 'icons/icon-512-maskable.png?v=logo-20260921', 'icons/apple-touch-icon.png?v=logo-20260921'].map((path) => new URL(path, BASE).href);
 self.addEventListener('install', (event) => event.waitUntil(caches.open(SHELL_CACHE).then((cache) => cache.addAll(SHELL)).then(() => self.skipWaiting())));
@@ -7,6 +7,7 @@ self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
   if (request.method !== 'GET' || url.origin !== BASE.origin || !url.pathname.startsWith(BASE.pathname)) return;
+  if (url.pathname.endsWith('.mobileconfig')) return;
   if (request.mode === 'navigate') {
     const rootIndex = new URL('index.html', BASE).href;
     const installPath = new URL('install/', BASE).pathname;

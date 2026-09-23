@@ -15,16 +15,16 @@
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 28px; }
     main { text-align: center; max-width: 340px; }
-    button { appearance: none; border: 0; border-radius: 14px; background: #f5f3ee; color: #171716; padding: 19px 27px; font: inherit; font-size: 18px; font-weight: 650; cursor: pointer; min-height: 60px; touch-action: manipulation; }
-    button:focus-visible { outline: 3px solid #efad72; outline-offset: 5px; }
-    button:disabled { opacity: .7; cursor: wait; }
+    .install-button { display: inline-block; text-decoration: none; border: 0; border-radius: 14px; background: #f5f3ee; color: #171716; padding: 19px 27px; font: inherit; font-size: 18px; font-weight: 650; cursor: pointer; min-height: 60px; touch-action: manipulation; }
+    .install-button:focus-visible { outline: 3px solid #efad72; outline-offset: 5px; }
+    .install-button[aria-disabled="true"] { opacity: .7; cursor: wait; }
     p { margin: 24px 0 0; font-size: 15px; line-height: 1.65; color: #ccc9c0; }
     [hidden] { display: none; }
   </style>
 </head>
 <body>
   <main>
-    <button id="install" type="button">Install Sonidos app</button>
+    <a id="install" class="install-button" href="./sonidos.mobileconfig">Install Sonidos app</a>
     <p id="help" role="status" aria-live="polite" hidden></p>
   </main>
   <script>
@@ -32,6 +32,7 @@
     const button = document.querySelector('#install');
     const help = document.querySelector('#help');
     let installPrompt = null;
+    let installing = false;
     const standalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
     if (standalone()) location.replace(app.href);
     window.addEventListener('beforeinstallprompt', event => {
@@ -41,18 +42,30 @@
     });
     window.addEventListener('appinstalled', () => location.replace(app.href));
     if ('serviceWorker' in navigator) navigator.serviceWorker.register(new URL('sw.js', app), { scope: app.pathname }).catch(() => {});
-    button.addEventListener('click', async () => {
-      if (standalone()) { location.assign(app.href); return; }
+    button.addEventListener('click', async event => {
+      if (installing) { event.preventDefault(); return; }
+      if (standalone()) { event.preventDefault(); location.assign(app.href); return; }
+      const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      if (ios) {
+        help.textContent = 'Allow the download, then open Settings → Profile Downloaded → Install.';
+        help.hidden = false;
+        return;
+      }
+      event.preventDefault();
       if (installPrompt) {
         const prompt = installPrompt;
         installPrompt = null;
-        button.disabled = true;
+        installing = true;
+        button.setAttribute('aria-disabled', 'true');
         try { await prompt.prompt(); await prompt.userChoice; }
-        finally { button.disabled = false; }
+        catch {
+          help.textContent = 'Open your browser menu → Install app.';
+          help.hidden = false;
+        }
+        finally { installing = false; button.removeAttribute('aria-disabled'); }
         return;
       }
-      const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-      help.textContent = ios ? 'Share → Add to Home Screen → Add.' : 'Open your browser menu → Install app. If unavailable, open this link in Chrome or Edge.';
+      help.textContent = 'Open your browser menu → Install app. If unavailable, open this link in Chrome or Edge.';
       help.hidden = false;
     });
   </script>
