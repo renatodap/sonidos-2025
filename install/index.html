@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171716">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Sonidos">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png?v=logo-20260921">
+  <link rel="icon" href="../icons/icon-192.png?v=logo-20260921">
+  <title>Install Sonidos app</title>
+  <style>
+    :root { color-scheme: dark; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #171716; color: #f5f3ee; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 28px; }
+    main { text-align: center; max-width: 340px; }
+    button { appearance: none; border: 0; border-radius: 14px; background: #f5f3ee; color: #171716; padding: 19px 27px; font: inherit; font-size: 18px; font-weight: 650; cursor: pointer; min-height: 60px; touch-action: manipulation; }
+    button:focus-visible { outline: 3px solid #efad72; outline-offset: 5px; }
+    button:disabled { opacity: .7; cursor: wait; }
+    p { margin: 24px 0 0; font-size: 15px; line-height: 1.65; color: #ccc9c0; }
+    [hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <button id="install" type="button">Install Sonidos app</button>
+    <p id="help" role="status" aria-live="polite" hidden></p>
+  </main>
+  <script>
+    const app = new URL('../', location.href);
+    const button = document.querySelector('#install');
+    const help = document.querySelector('#help');
+    let installPrompt = null;
+    const standalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+    if (standalone()) location.replace(app.href);
+    window.addEventListener('beforeinstallprompt', event => {
+      event.preventDefault();
+      installPrompt = event;
+      help.hidden = true;
+    });
+    window.addEventListener('appinstalled', () => location.replace(app.href));
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register(new URL('sw.js', app), { scope: app.pathname }).catch(() => {});
+    button.addEventListener('click', async () => {
+      if (standalone()) { location.assign(app.href); return; }
+      if (installPrompt) {
+        const prompt = installPrompt;
+        installPrompt = null;
+        button.disabled = true;
+        try { await prompt.prompt(); await prompt.userChoice; }
+        finally { button.disabled = false; }
+        return;
+      }
+      const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      help.textContent = ios ? 'Share → Add to Home Screen → Add.' : 'Open your browser menu → Install app. If unavailable, open this link in Chrome or Edge.';
+      help.hidden = false;
+    });
+  </script>
+</body>
+</html>
